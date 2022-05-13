@@ -75,4 +75,12 @@
       url('./assets/endless-constellation.svg') 30%,
       linear-gradient(to bottom, $p_darker, 85%, $p_lighter);
   }
+  &::-webkit-scrollbar {
+    width: 3px;
+    background-color: #ffff;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 3px;
+    background-color: #d44c4c;
+  }
 }
