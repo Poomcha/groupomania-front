@@ -85,7 +85,7 @@ export default {
     },
     creatorImgUrl: {
       type: String,
-      default: "http://localhost:3000/images/user-solid.svg",
+      default: "https://polar-escarpment-64317.herokuapp.com/images_default/profile_pic_placeholder.svg",
     },
     title: {
       type: String,

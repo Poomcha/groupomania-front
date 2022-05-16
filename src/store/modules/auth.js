@@ -97,8 +97,6 @@ const actions = {
           commit('set_user_id', res.data.userId);
           commit('set_token', res.data.token);
           axios.defaults.headers.common['Authorization'] = 'Bearer ' + getters.get_token
-          // console.log(axios.defaults.headers.common['Authorization'])
-          // Set profile if it exist, else redirect to profil completion view.
           axios
             .get(`users/${state.user._id}`)
             .then((res) => {
