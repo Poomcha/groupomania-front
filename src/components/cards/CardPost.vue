@@ -12,6 +12,7 @@
               :src="creatorImgUrl === null ? undefined : creatorImgUrl"
               alt="Profil Picture"
               class="img img--card_post_profile"
+              @error="imgUrlAlt"
             />
           </div>
           <div>
@@ -151,6 +152,9 @@ export default {
         params: { postId: this.postId },
       });
     },
+    imgUrlAlt(event) {
+      event.target.src = "https://polar-escarpment-64317.herokuapp.com/images_default/profile_pic_placeholder.svg"
+    }
   },
 };
 </script>

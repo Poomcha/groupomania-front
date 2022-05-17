@@ -11,6 +11,7 @@
             <img
               :src="get_local_post.Profile.profilPictureURL"
               alt="Profil Picture"
+              @error="imgUrlAlt"
             />
           </div>
           <div>
@@ -109,6 +110,10 @@ export default {
         name: "modify-post",
         params: { postId: this.get_local_post.id },
       });
+    },
+    imgUrlAlt(event) {
+      event.target.src =
+        "https://polar-escarpment-64317.herokuapp.com/images_default/profile_pic_placeholder.svg";
     },
   },
 };

@@ -29,9 +29,13 @@
         <img
           :src="imagePreview ? imagePreview : oldImg"
           class="img-preview-profile"
+          @error="imgUrlAlt"
         />
       </div>
-      <p v-if="validator.file" class="text--error text--center text--normal-f text--bold-w">
+      <p
+        v-if="validator.file"
+        class="text--error text--center text--normal-f text--bold-w"
+      >
         Fichiers autorisés : .jpg, .jpeg, .png, 5Mo maximum.
       </p>
       <div
@@ -192,6 +196,10 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+    imgUrlAlt(event) {
+      event.target.src =
+        "https://polar-escarpment-64317.herokuapp.com/images_default/profile_pic_placeholder.svg";
     },
   },
   props: {

@@ -11,7 +11,7 @@
     <div class="card-com__creator-infos" :class="{changingCom: changeCom}">
       <a href="" @click.prevent="goToProfile()" class="ctn ctn--flex-start link">
         <div>
-          <img :src="profile.profileImg" alt="Profile Picture" class="img--card_com_profile"/>
+          <img :src="profile.profileImg" alt="Profile Picture" class="img--card_com_profile" @error="imgUrlAlt"/>
           <span class="text--normal-f text--normal-w">{{ profile.firstName + " " + profile.lastName }}</span>
         </div>
       </a>
@@ -103,6 +103,9 @@ export default {
         target_id: this.profile.id,
       });
     },
+    imgUrlAlt(event) {
+      event.target.src = "https://polar-escarpment-64317.herokuapp.com/images_default/profile_pic_placeholder.svg"
+    }
   },
 };
 </script>

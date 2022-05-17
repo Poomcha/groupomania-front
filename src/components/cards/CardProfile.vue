@@ -10,7 +10,7 @@
       @click.prevent="$emit('sendid', this.userId)"
     >
       <div id="picture-ctn" class="card-profile__img-ctn">
-        <img :src="profilePicURL" alt="Profile Picture"/>
+        <img :src="profilePicURL" alt="Profile Picture" @error="imgUrlAlt" />
       </div>
       <div class="card-profile__infos-ctn ctn--column">
         <div class="ctn ctn--flex-start">
@@ -44,7 +44,8 @@ export default {
     },
     profilePicURL: {
       type: String,
-      default: "https://polar-escarpment-64317.herokuapp.com/images_default/profile_pic_placeholder.svg",
+      default:
+        "https://polar-escarpment-64317.herokuapp.com/images_default/profile_pic_placeholder.svg",
     },
     firstName: {
       type: String,
@@ -73,6 +74,12 @@ export default {
   computed: {
     isProfilesView() {
       return this.$route.name === "profiles";
+    },
+  },
+  methods: {
+    imgUrlAlt(event) {
+      event.target.src =
+        "https://polar-escarpment-64317.herokuapp.com/images_default/profile_pic_placeholder.svg";
     },
   },
 };
